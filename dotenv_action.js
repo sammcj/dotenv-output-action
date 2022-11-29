@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let dotenv_action = function (dotenvFile, splitArrays) {
+let dotenv_action = function (dotenvFile, splitArrays, logVariables) {
   if (!fs.existsSync(dotenvFile)) {
     throw new Error('file does not exist');
   }
@@ -23,6 +23,12 @@ let dotenv_action = function (dotenvFile, splitArrays) {
     } else {
       returnedMap[lowercase_key] = value;
     }
+  }
+
+  if (logVariables) {
+    console.log(returnedMap);
+  } else {
+    console.log(`loaded ${Object.keys(returnedMap).length} values into the environment`);
   }
 
   return returnedMap;

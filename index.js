@@ -5,19 +5,13 @@ try {
   const logVariables = core.getInput('log-variables').toLowerCase() === 'true';
   const maskVariables = core.getInput('mask-variables').toLowerCase() === 'true';
   const splitArrays = core.getInput('split-arrays').toLowerCase() === 'false';
-  const variables = dotenvAction(dotenvFile, logVariables, splitArrays);
+  const variables = dotenvAction(dotenvFile, splitArrays, logVariables);
 
   if (maskVariables) {
     for (const key in variables) {
       const value = variables[key];
       core.setSecret(value);
     }
-  }
-
-  if (logVariables) {
-    console.log(variables);
-  } else {
-    console.log(`loaded ${Object.keys(variables).length} values into the environment`);
   }
 
   core.setOutput('generic', 'Outputs are generated from the provided .env file');
