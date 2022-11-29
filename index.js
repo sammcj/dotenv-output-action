@@ -19,7 +19,9 @@ try {
     const value = variables[key];
     core.setOutput(key, value);
     if (logVariables) {
-      core.summary(`Dotenv has set it's output ${key} to ${value}`);
+      const message = `Dotenv has set it's output ${key} to ${value}`;
+      core.info(message);
+      core.summary(message);
     }
   }
 } catch (error) {
