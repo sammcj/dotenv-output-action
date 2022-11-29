@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const dotenvAction = require('./dotenv_action');
+
 try {
   const dotenvFile = core.getInput('path');
   const logVariables = core.getInput('log-variables').toLowerCase();
@@ -23,9 +24,17 @@ try {
       core.info(message);
     }
   }
+  if (logVariables) {
+    await writeSummary(variables);
+  }
+} catch (error) {
+  core.setFailed(error.message);
+}
 
-  core.summary
+async function writeSummary(variables) {
+  await core.summary
     .addHeading('Dotenv Output Action Summary')
+    .addText('This is a summary of the outputs generated from the provided .env file')
     .addTable([
       [
         { data: 'Output', header: true },
@@ -34,6 +43,4 @@ try {
       ...Object.keys(variables).map((key) => [{ data: key }, { data: variables[key] }]),
     ])
     .write();
-} catch (error) {
-  core.setFailed(error.message);
 }
