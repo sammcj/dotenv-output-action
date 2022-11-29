@@ -9,8 +9,8 @@ This Github Action reads items from provided environment file (`.env`) and provi
 ## Inputs
 
 - `path` - Override the path to the `.env` file. Default is `.env` in the repository root.
-- `log-variables` - Log variables after reading from the `.env` file.
-- `mask-variables` - Mask values after reading from the `.env` file.
+- `log-variables` - Log variables after reading from the `.env` file (default: `false`).
+- `mask-variables` - Mask values after reading from the `.env` file (default: `true`).
 
 ## Outputs
 
