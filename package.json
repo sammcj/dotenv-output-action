@@ -22,7 +22,7 @@
     "variables",
     "output"
   ],
-  "author": "GitHub",
+  "author": "Sam McLeod",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sammcj/dotenv-output-action/issues"
