@@ -24,7 +24,7 @@ try {
   if (splitArrays) {
     const splitArrayKeys = Object.keys(variables).filter((key) => key.includes(','));
     for (const key of splitArrayKeys) {
-      core.setOutput(key, variables[key]);
+      core.setOutput(key, splitArrayKeys[key]);
     }
   }
 } catch (error) {
