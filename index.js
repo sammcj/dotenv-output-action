@@ -25,7 +25,7 @@ try {
     }
   }
   if (logVariables) {
-    await writeSummary(variables);
+    writeSummary(variables);
   }
 } catch (error) {
   core.setFailed(error.message);
