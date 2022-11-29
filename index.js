@@ -34,7 +34,6 @@ try {
 function writeSummary(variables) {
   core.summary
     .addHeading('Dotenv Output Action Summary')
-    .addText('This is a summary of the outputs generated from the provided .env file')
     .addTable([
       [
         { data: 'Output', header: true },
