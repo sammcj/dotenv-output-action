@@ -11,7 +11,6 @@ This Github Action reads items from provided environment file (`.env`) and provi
 - `path` - Override the path to the `.env` file. Default is `.env` in the repository root.
 - `log-variables` - Log variables after reading from the `.env` file.
 - `mask-variables` - Mask values after reading from the `.env` file.
-- `split-arrays` - Split arrays into multiple outputs, default is `false`.
 
 ## Outputs
 
@@ -29,13 +28,10 @@ Then you will have outputs:
 
 - `version`: `1.0`
 - `author`: `Mickey Mouse`
-  - if `split-arrays` is `true`:
-    - `myarray`: `1,2,3`
-    - `myarray_element_0`: `1`
-    - `myarray_element_1`: `2`
-    - `myarray_element_2`: `3`
-  - if `split-arrays` is `false`:
-  - `myarray`: `1,2,3`
+- `myarray`: `1,2,3`
+- `myarray_element_0`: `1`
+- `myarray_element_1`: `2`
+- `myarray_element_2`: `3`
 
 ## Example usage
 

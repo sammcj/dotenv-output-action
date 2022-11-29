@@ -27,7 +27,7 @@ test('test runs with expanded values', () => {
 // add tests for fixtures/.array.env
 test('test runs with array values', () => {
   const dotenv_action = require('./dotenv_action');
-  expect(dotenv_action('fixtures/.array.env', true)).toEqual({
+  expect(dotenv_action('fixtures/.array.env')).toEqual({
     testarray: 'cats,dogs,fish',
     testarrayquoted: 'abc,def,ghi,123,456',
     testarrayquoted_element_0: 'abc',

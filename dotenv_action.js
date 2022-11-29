@@ -1,7 +1,7 @@
 const fs = require('fs');
 const console = require('console');
 
-let dotenv_action = function (dotenvFile, splitArrays, logVariables) {
+let dotenv_action = function (dotenvFile, logVariables) {
   if (!fs.existsSync(dotenvFile)) {
     throw new Error('file does not exist');
   }
@@ -14,7 +14,7 @@ let dotenv_action = function (dotenvFile, splitArrays, logVariables) {
     const value = dotenv_expand.parsed[key];
     const lowercase_key = key.toLocaleLowerCase();
 
-    if (splitArrays && value.includes(',')) {
+    if (value.includes(',')) {
       const splitValues = value.split(',');
       for (let i = 0; i < splitValues.length; i++) {
         const splitValue = splitValues[i].trim();
