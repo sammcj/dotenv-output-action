@@ -10,21 +10,18 @@ let dotenv_action = function (dotenvFile, splitArrays, logVariables) {
   const dotenv_expand = require('dotenv-expand').expand(dotenv);
 
   const returnedMap = {};
-  const returnedMapArray = {};
   for (const key in dotenv_expand.parsed) {
     const value = dotenv_expand.parsed[key];
     const lowercase_key = key.toLocaleLowerCase();
 
     if (splitArrays && value.includes(',')) {
       const splitValues = value.split(',');
-      returnedMap[lowercase_key] = value;
       for (let i = 0; i < splitValues.length; i++) {
         const splitValue = splitValues[i].trim();
         returnedMap[`${lowercase_key}_element_${i}`] = splitValue;
       }
-    } else {
-      returnedMap[lowercase_key] = value;
     }
+    returnedMap[lowercase_key] = value;
   }
 
   if (logVariables) {
