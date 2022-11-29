@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint index.js",
     "build": "ncc build index.js --minify --v8-cache",
-    "test": "eslint index.js --fix && jest"
+    "test": "npm run build && eslint index.js --fix && jest"
   },
   "repository": {
     "type": "git",
