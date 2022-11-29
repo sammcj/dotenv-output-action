@@ -32,7 +32,7 @@ try {
 }
 
 async function writeSummary(variables) {
-  await core.summary
+  core.summary
     .addHeading('Dotenv Output Action Summary')
     .addText('This is a summary of the outputs generated from the provided .env file')
     .addTable([
