@@ -6,7 +6,7 @@ try {
   const maskVariables = core.getInput('mask-variables').toLowerCase();
   const variables = dotenvAction(dotenvFile, logVariables);
 
-  if (maskVariables) {
+  if (maskVariables === 'true') {
     for (const key in variables) {
       const value = variables[key];
       core.setSecret(value);
