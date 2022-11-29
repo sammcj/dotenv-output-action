@@ -21,9 +21,19 @@ try {
     if (logVariables) {
       const message = `Dotenv has set it's output ${key} to ${value}`;
       core.info(message);
-      core.summary(message);
     }
   }
+
+  await core.summary
+    .addHeading('Dotenv Output Action Summary')
+    .addTable([
+      [
+        { data: 'Output', header: true },
+        { data: 'Value', header: true },
+      ],
+      ...Object.keys(variables).map((key) => [{ data: key }, { data: variables[key] }]),
+    ])
+    .write();
 } catch (error) {
   core.setFailed(error.message);
 }
