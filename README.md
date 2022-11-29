@@ -29,12 +29,13 @@ Then you will have outputs:
 
 - `version`: `1.0`
 - `author`: `Mickey Mouse`
-- `myarray`: `1,2,3`
-  - or if `split-arrays` is `true`:
+  - if `split-arrays` is `true`:
     - `myarray`: `1,2,3`
     - `myarray_element_0`: `1`
     - `myarray_element_1`: `2`
     - `myarray_element_2`: `3`
+  - if `split-arrays` is `false`:
+  - `myarray`: `1,2,3`
 
 ## Example usage
 
