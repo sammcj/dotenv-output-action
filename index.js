@@ -31,7 +31,7 @@ try {
   core.setFailed(error.message);
 }
 
-async function writeSummary(variables) {
+function writeSummary(variables) {
   core.summary
     .addHeading('Dotenv Output Action Summary')
     .addText('This is a summary of the outputs generated from the provided .env file')
