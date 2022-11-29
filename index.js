@@ -24,7 +24,7 @@ try {
     }
   }
 
-  await core.summary
+  core.summary
     .addHeading('Dotenv Output Action Summary')
     .addTable([
       [
