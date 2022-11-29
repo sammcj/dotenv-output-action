@@ -51,6 +51,10 @@ hello=world
   # Will output "Hello world"
 ```
 
+## Screenshot
+
+![screenshot](screenshots/summary.png)
+
 ## Credits
 
 - Originally forked from [falti/dotenv-action](https://github.com/falti/dotenv-action)
