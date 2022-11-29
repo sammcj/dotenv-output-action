@@ -11,13 +11,9 @@ inputs:
   log-variables:
     description: 'whether to log the variables to output or not'
     required: false
-    default: 'false'
+    default: 'true'
   mask-variables:
     description: 'whether to mask the variables as secrets or not'
-    required: false
-    default: 'false'
-  split-arrays:
-    description: 'whether to split arrays or not'
     required: false
     default: 'false'
 outputs:
