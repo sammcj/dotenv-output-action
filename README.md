@@ -9,8 +9,8 @@ This Github Action reads items from provided environment file (`.env`) and provi
 ## Inputs
 
 - `path` - Override the path to the `.env` file. Default is `.env` in the repository root.
-- `log-variables` - Log variables after reading from the `.env` file (default: `true`).
-- `mask-variables` - Mask values after reading from the `.env` file (default: `false`).
+- `log-variables` - Log variables after reading from the `.env` file and output a table to the workflow [summary](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary) (default: `true`).
+- `mask-variables` - [Mask](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-log) values after reading from the `.env` file (default: `false`).
 
 ## Outputs
 
@@ -49,6 +49,18 @@ hello=world
 - name: echo hello world
   run: echo "hello ${{ steps.dotenv.outputs.hello }}"
   # Will output "Hello world"
+```
+
+Full example:
+
+```yaml
+- name: dotenv
+  id: dotenv
+  uses: sammcj/dotenv-output-action@main
+  with:
+    path: .github/.github.env
+    log-variables: true
+    mask-variables: false
 ```
 
 ## Screenshot

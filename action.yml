@@ -1,15 +1,15 @@
 name: 'Dotenv Output Action'
 description: 'Load variables from .env file'
 branding:
-  icon: play
-  color: green
+  icon: plus-square
+  color: red
 inputs:
   path:  # id of input
     description: 'the path to the .env file (including file name)'
     required: true
     default: '.env'
   log-variables:
-    description: 'whether to log the variables to output or not'
+    description: 'whether to log the variables to output and generate a summary or not'
     required: false
     default: 'true'
   mask-variables:
