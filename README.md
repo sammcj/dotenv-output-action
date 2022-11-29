@@ -11,6 +11,7 @@ This Github Action reads items from provided environment file (`.env`) and provi
 - `path` - Override the path to the `.env` file. Default is `.env` in the repository root.
 - `log-variables` - Log variables after reading from the `.env` file.
 - `mask-variables` - Mask values after reading from the `.env` file.
+- `split-arrays` - Split arrays into multiple outputs, default is `false`.
 
 ## Outputs
 
@@ -21,12 +22,19 @@ E.g. you have the following `.env`:
 ```yaml
   VERSION=1.0
   AUTHOR=Mickey Mouse
+  MYARRAY=1,2,3
 ```
 
 Then you will have outputs:
 
 - `version`: `1.0`
 - `author`: `Mickey Mouse`
+- `myarray`: `1,2,3`
+  - or if `split-arrays` is `true`:
+    - `myarray`: `1,2,3`
+    - `myarray_0`: `1`
+    - `myarray_1`: `2`
+    - `myarray_2`: `3`
 
 ## Example usage
 

@@ -4,7 +4,7 @@ try {
   const dotenvFile = core.getInput('path');
   const logVariables = core.getInput('log-variables').toLowerCase() === 'true';
   const maskVariables = core.getInput('mask-variables').toLowerCase() === 'true';
-  const splitArrays = core.getInput('split-values').toLowerCase() === 'false';
+  const splitArrays = core.getInput('split-arrays').toLowerCase() === 'false';
   const variables = dotenvAction(dotenvFile, logVariables, splitArrays);
 
   if (maskVariables) {
@@ -20,7 +20,7 @@ try {
     console.log(`loaded ${Object.keys(variables).length} values into the environment`);
   }
 
-  core.setOutput('generic', 'please check for actual outputs');
+  core.setOutput('generic', 'Outputs are generated from the provided .env file');
 
   for (const key in variables) {
     const value = variables[key];

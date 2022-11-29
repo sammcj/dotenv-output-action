@@ -16,9 +16,13 @@ inputs:
     description: 'whether to mask the variables as secrets or not'
     required: false
     default: 'false'
+  split-arrays:
+    description: 'whether to split arrays or not'
+    required: false
+    default: 'false'
 outputs:
   generic: # output will be available to future steps
-    description: 'This command will have generic output variables based on .env'
+    description: 'Outputs are generated from the provided .env file'
 runs:
   using: 'node16'
   main: 'dist/index.js'
