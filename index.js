@@ -31,7 +31,7 @@ try {
   core.setFailed(error.message);
 }
 
-function writeSummary(variables) {
+async function writeSummary(variables) {
   core.summary
     .addHeading('Dotenv Output Action Summary')
     .addTable([
