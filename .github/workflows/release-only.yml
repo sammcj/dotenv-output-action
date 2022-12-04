@@ -13,8 +13,8 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+      - uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # v3
         name: Set up Node.js
         with:
           node-version: ${{ .nvmrc }}
@@ -30,7 +30,7 @@ jobs:
 
       # Publish
       - name: Create a GitHub release
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@18eadf9c9b0f226f47f164f5373c6a44f0aae169 # v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
